@@ -1,0 +1,35 @@
+diff ( y , x , 1 ) = sin(sqrt(2.0*x + 3.0));
+!
+Digits := 32;
+max_terms := 40;
+!
+x_start := c(2.0);
+x_end := c(3.0) ;
+diff(y,0,exact_soln_y(x_start));
+glob_look_poles := true;
+glob_max_h := c(0.0001);
+glob_upper_ratio_limit := c(1.001);
+glob_lower_ratio_limit := c(0.999);
+
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 1;
+#  Real Part 
+array_given_rad_poles[1,1] := c(-1.5);  
+# Imag Part 
+array_given_rad_poles[1,2] := c(0.0);
+# Order 
+array_given_ord_poles[1,1] := c(0.5); 
+# Not Used
+array_given_ord_poles[1,2] := c(0.0);  
+
+!
+exact_soln_y := proc(x)
+# return(sin(sqrt(2.0*x+3.0))-sqrt(2.0*x+3.0)*cos(sqrt(2.0*x+3.0)));
+return(sin(sqrt(c(2.0)*c(x)+c(3.0)))-sqrt(c(2.0)*c(x)+c(3.0))*cos(sqrt(c(2.0)*c(x)+c(3.0))));
+end;

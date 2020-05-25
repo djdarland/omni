@@ -1,0 +1,32 @@
+diff ( y1 , x , 1 ) = m1 * y2;
+diff ( y2 , x , 1 ) = y1;
+!
+Digits := 64;
+max_terms:=40;
+!
+x_start := 0.2;
+x_end := 0.8;
+diff(y1,0,exact_soln_y1(x_start));
+diff(y2,0,exact_soln_y2(x_start));
+glob_max_h := 0.00000001;
+glob_look_poles := true;
+# glob_max_hours := 15;
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 3;
+!
+exact_soln_y1 := proc(x)
+return(cos(x));
+end;
+exact_soln_y2 := proc(x) 
+return(sin(x));
+end;
+
+
+
+

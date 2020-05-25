@@ -1,0 +1,131 @@
+This (12/11/2017) is the README for rev0062 of omnisode.
+Just fixed a small problem in calculation of good digits,
+which I found working on version of this program for complex numbers
+(not released yet). I think I may reexamine the error
+estimation and control with a fresh mind soon.
+
+This (8/26/2016) is the README for rev0062 of omnisode.
+I added support for Maple 2016 (under Ubuntu Linux 14.04).
+I no longer have Maple for Windows.
+Also I had to make small change to tomni.rb for difference in command line order for gcc and g++. And commented out some dead code and made small corrections
+to format statements noticed by newer c & c++.
+
+This (4/24/2015) is the README for rev0061 of omnisode.
+Slight change for APFP. 
+
+This (4/24/2015) is the README for rev0060 of omnisode.
+Slight changes for Maple. 
+
+This (4/24/2015) is the README for rev0059 of omnisode.
+Fixed slight problem with release script.
+
+This (4/24/2015) is the README for rev0058 of omnisode.
+I have added support for my arbirarary precision floating point (APFP)
+Ruby code. It is too slow to be of much practical use, but the interval
+arithmetic may be of some interest. See http://apfp.sourceforge.net/
+for more on it. Also I added a neg function for monadic minus. It was simpler
+than an actual monadic minus and increases efficiency just as much. 
+Also, when using APFP, the floats in the ode file must be passed through the
+convrsion function "c". This doesn't hurt anything for the other languages.
+The optimization of H is turned off for now. Also looking for poles can
+be turned on or off. I had tested quite a bit for c, c++, Ruby and APFP.
+Now I have made quite a few changes for Maxima and it seems to work with
+limited testing. I am making this "release" in order to move code to another
+computer where I can work on Maple. Also to test revised release script.
+
+
+This (9/23/2014) is the README for rev0057 of omnisode.
+Rev0056 was a mistake - the code was unchanged. But I did
+discover I could use a much smaller h in many cases.
+I am including updated ode and odes test files.
+Otherwise the code in 0056 and 0057 matched 0055.
+
+
+This (9/22/2014) is the README for rev0056 of omnisode.
+I was comparing my results with Dr Y. F. Chang & Dr George Corliss's
+ATOMFT. I was reminded more accutely of something I was aware of.
+Namely I waa having to use a smaller h (increment) than I should.
+After thinking where such an error could occur I examined the generated
+code for the "jump" logic carefully, which waa where I thought such an
+error most likely. I discovered an "/" that should have been an "*".
+I have rerun many of the tests, and seem able to use a much larger increment
+than before. In partucular I used an increment of 1.0 in "sin_lg_h.ode"
+and still got 16 place accuracy with gcc doubles. Two cases still do not
+give good accuracy and both seem insensitive to smaller h - mamely
+mtest2.ode and mtest6.ode. They need more attention. Also I made the
+display interval default to 0.1 - which solved a problem I discovered.
+
+
+This (8/28/2014) is the README file for rev0055 of omnisode.
+Added evalf in Maple for estimation of error
+Changed "analytic" to "closed_form"
+Used glob_prec instead of literals in check in error calculations.
+Simplified iteration count - eliminating unneeded variables.
+Removd some commented out code.
+
+This (8/27/2014) is the README file for rev0051 of omnisode.
+Fixed problem in preodein.rb regarding absolute value.
+Fixed problem with indentation in preindent.rb.
+
+This (5/17/2014) is the README file for rev0050 of omnisode.
+The only significant change since rev0049 is a correction for estiimating
+the error for Maple -- using the value of Digits correctly in estimating it. 
+It seems to be functioning well, although I have plans for more functionality.
+The focus since rev0046 has been on the user interface. The shell scripts
+have been completely replaced by a ruby program (tomni.rb) which runs omnisode
+for linux, cygwin or windows. It also works for any of c, c++, ruby, maxima
+or maple. It reads a file of names of ode files (---.odes). You now simple
+type "ruby tomni.rb" at a prompt (it trys to reecognize the os, and prompts
+if it doesn't). Then it asks for the name of the odes file containing the
+names of the ode files (without the ode suffix) and optionally followed
+by comments in in quotes. If the directory this would use (using the language,
+odes file name and os) already exists you may select a different part of the
+name for the odes part. Then you are prompted for which lanhuages you want
+omnisode to be executed for. Then it runs omnisode for all the files in the odes
+file for each language selected. The results are placed in the 
+html/omniresults/language_odes_os directory. where language is replaced by the 
+language, odes is replaced by the odes name (or its replacemeny) and os by the 
+name of the os. A web browser can then be pointed at table.html in each
+directory so created.
+
+ 
+With omnisode0050tar.gz
+use
+tar -xzvf omnisode0050.tar.gz 
+to extract the files.
+
+The contents will be placed in a subdirectory which will be created.
+
+Documentation is on this web site http://sode.sourceforge.net/ at:
+
+http://sode.sourceforge.net/omnisodedoc.html
+(on input ode file - defines diffeq's to be solved) 
+
+http://sode.sourceforge.net/omnisodedoc2.html
+(on the shell scripts to run omnisode)
+
+The documentation needs some updating (which I plan to do soon) but is 
+mostly correct.
+
+I have extensively edited this README file when masking rev0049 to make it 
+more useful.
+I plan to edit the other documentation soon, it is on the web site, but
+not in the archive.
+
+The main thing missing is that the size of the increment is not determined
+well. It seems that glob_max_h in effect controls glob_h - the increment.
+I have been busy with determining how close any singularity is, and now
+have that working most of the time - there are test results of this on the 
+web site. These are prerequisite to selecting a glob_h. Also it would be
+good it a different max_terms could be recommended if the one in the 
+input ode file was not a good one - it cannot be changed dynamically.
+
+The program can generate code for c, c++, ruby, maxima and maple.
+
+I may be reached by email at student@dennisdarland.com
+
+The omnisode web site is 
+http://sode.sourceforge.net/
+
+and Dennis Darland's personal web site is:
+http://dennisdarland.com/

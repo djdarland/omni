@@ -1,0 +1,33 @@
+diff ( y , x , 1 ) =  sin(x) / (0.2 * x + 0.3);
+!
+Digits := 32;
+max_terms := 30;
+!
+x_start := 0.0;
+x_end := 5.0 ;
+diff(y,0,exact_soln_y(x_start));
+glob_look_poles := true;
+glob_max_iter := 1000000;
+glob_display_interval := 0.1;
+glob_max_minutes := 10;
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 1;
+#  Real Part 
+array_given_rad_poles[1,1] := -1.5;  
+# Imag Part 
+array_given_rad_poles[1,2] := 0.0;
+# Order 
+array_given_ord_poles[1,1] := 1.0; 
+# Not Used
+array_given_ord_poles[1,2] := 0.0;  
+
+!
+exact_soln_y := proc(x)
+return(0.35368600833851455044094925717134 * Si(x + 1.5000000000000000000000000000000)   - 4.9874749330202721547086168557074 * Ci(x   + 1.5000000000000000000000000000000));
+end;

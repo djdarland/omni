@@ -1,0 +1,23 @@
+diff ( y , x , 1 ) =  arccos (x) ;
+!
+max_terms := 30;
+Digits := 32;
+!
+x_start := c(-0.5);
+x_end := c(0.5);
+diff(y,0,exact_soln_y(x_start));
+glob_look_poles := true;
+glob_display_interval := 0.0001;
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 0;
+!
+exact_soln_y := proc(x)
+return ( c(x) *arccos(c(x)) - sqrt(glob__1 - c(x) * c(x)));
+end;
+

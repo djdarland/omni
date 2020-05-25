@@ -1,0 +1,26 @@
+diff ( y2 , x , 1 ) = neg( y1) + 1.0 ;
+diff ( y1 , x , 1 ) = y2 - 1.0 ;
+!
+Digits := 16;
+max_terms := 40;
+!
+x_start := c(0.1);
+x_end := c(0.5);
+diff(y1,0,exact_soln_y1(x_start));
+diff(y2,0,exact_soln_y2(x_start));
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 3;
+!
+exact_soln_y1 := proc(x)
+return(c(1.0) +  cos(c(x)));
+end;
+exact_soln_y2 := proc(x)
+return(c(1.0) - sin(c(x)));
+end;
+

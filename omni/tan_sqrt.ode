@@ -1,0 +1,37 @@
+diff ( y , x , 1 ) = ( 1.0 + ( tan ( sqrt ( 2.0 * x + 1.0 ) ) * tan( sqrt ( 2.0 * x + 1.0 ) ) ) ) / sqrt ( 2.0 * x + 1.0 ) ;
+!
+Digits := 32;
+max_terms := 40;
+!
+x_start := c(1.4);
+x_end := c(2.1) ;
+diff(y,0,exact_soln_y(x_start));
+glob_look_poles := true;
+glob_max_h := c(0.0001);
+#glob_min_h := c(0.01);
+
+#glob_min_h := c(0.00000000001);
+#glob_max_h := c(0.00001);
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+# Some Pole Eq = 5
+#
+glob_type_given_pole := 1;
+#  Real Part 
+array_given_rad_poles[1,1] := c(-2.0);  
+# Imag Part 
+array_given_rad_poles[1,2] := c(0.0);
+# Order 
+array_given_ord_poles[1,1] := c(0.5); 
+# Not Used
+array_given_ord_poles[1,2] := c(0.0);  
+
+
+!
+exact_soln_y := proc(x)
+return(tan(sqrt(c(2.0)*c(x) + c(1.0))));
+end;

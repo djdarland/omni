@@ -1,0 +1,79 @@
+diff(x,t,2) = m1 * 0.58*x*expt((x*x + y*y),(m1 * 1.5));
+diff(y,t,2) = m1 * 0.58*y*expt((x*x + y*y),(m1 * 1.5));
+!
+# C File ex3_1.ato
+# C Example 3-1.  ODEINP file.
+# C Y.F. Chang, ATOMFT User Manual, Version 3.11
+# C Partial results:
+# C    ATOMFT  ver. 3.11, copyright (C) 1979-93, Y. F. Chang; Solution results.
+# C    ******
+# C       MPRINT    NSTEPS           for example 3-1                                  
+# C            4        80
+# C        START       END    DLTXPT     ALPHA      X(1)      X(2)      Y(1)      Y(2)
+# C        1.000    10.000     0.250     0.580    -1.000     0.000     0.000     4.300
+# C    Results calculated by an infinite-series method.
+# C    ------------------------------------------------
+# C   
+# C        Step number     0 at     T =  1.00000E+00
+# C         X -1.00000E+00  0.00000E+00
+# C         Y  0.00000E+00  4.30000E+00
+# C   
+# C        Step number     1 at     T =  1.23000E+00
+# C         X -9.87214E-01  9.52869E-02
+# C         Y  9.85352E-01  4.26058E+00
+# C   
+# C        Step number     2 at     T =  1.25000E+00
+# C         X -9.85268E-01  9.92470E-02
+# C         Y  1.07052E+00  4.25646E+00
+# C   
+# C        . . .
+# C   
+# C        Step number     7 at     T =  9.75000E+00
+# C         X  1.51233E-01  1.34882E-01
+# C         Y  3.65490E+01  4.16456E+00
+# C   
+# C        Step number     7 at     T =  1.00000E+01
+# C         X  1.84953E-01  1.34882E-01
+# C         Y  3.75902E+01  4.16445E+00
+# C   
+# C   PLOTS:
+# C    2  1.25000E+00 -9.85268E-01  9.92470E-02  1.07052E+00  4.25646E+00
+# C    2  1.50000E+00 -9.56779E-01  1.23036E-01  2.12958E+00  4.22040E+00
+# C      . . .
+# C
+# C    7  9.75000E+00  1.51233E-01  1.34882E-01  3.65490E+01  4.16456E+00
+# C    7  1.00000E+01 -9.48809E-02  5.00315E-01  3.00934E+01  1.56935E+01
+# C
+# C Block 1
+# C
+# C  System with parameter.
+# C
+max_terms := 76;
+Digits := 16;
+# Block 2
+!
+t_start := 1.00; 
+t_end := 10.02;
+diff(x,0,-1.000);
+diff(x,1,0.000);
+diff(y,0,0.000);
+diff(y,1,4.300);
+glob_look_poles := true;
+glob_type_given_pole := 0;
+glob_min_h := 0.0001;
+glob_max_h := 0.0001;
+glob_display_interval := 0.001;
+
+!
+# Comment 5
+exact_soln_x := proc(t)
+# Comment 6
+return(0);
+# Comment 7
+end;
+exact_soln_y := proc(t)
+# Comment 6
+return(0);
+# Comment 7
+end;
+!

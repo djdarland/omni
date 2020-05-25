@@ -1,0 +1,21 @@
+diff ( y , x , 1 ) = sin(x) + 1.0;
+!
+Digits := 32;
+max_terms := 40;
+!
+x_start := c(-5.0);
+x_end := c(5.0) ;
+diff(y,0,exact_soln_y(x_start));
+glob_look_poles := true;
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 3;
+!
+exact_soln_y := proc(x)
+return(c(2.0) - c(cos(x)) + c(x));
+end;

@@ -1,0 +1,40 @@
+diff ( y , x , 5 ) = neg(diff ( y , x , 3)) ;
+!
+Digits := 64;
+max_terms := 40;
+!
+x_start := c(0.1);
+x_end := c(0.2) ;
+#
+# Trouble about Pi/2
+#
+diff(y,0,exact_soln_y(x_start));
+diff(y,1,exact_soln_yp(x_start));
+diff(y,2,exact_soln_ypp(x_start));
+diff(y,3,exact_soln_yppp(x_start));
+diff(y,4,exact_soln_ypppp(x_start));
+glob_look_poles := true;
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 3;
+!
+exact_soln_y := proc(x)
+return(cos(c(x)));
+end;
+exact_soln_yp := proc(x)
+return(neg(sin(c(x))));
+end;
+exact_soln_ypp := proc(x)
+return(neg(cos(c(x))));
+end;
+exact_soln_yppp := proc(x)
+return(sin(x));
+end;
+exact_soln_ypppp := proc(x)
+return(cos(c(x)));
+end;

@@ -1,0 +1,22 @@
+diff ( y , x , 1 ) = exp (0.1 * x + 0.2 ) ;
+!
+max_terms := 30;
+Digits := 32;
+!
+x_start := c(1.0);
+x_end := c(10.0) ;
+diff(y,0,exact_soln_y(x_start));
+glob_look_poles := true;
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 3;
+!
+exact_soln_y := proc(x)
+return(c(10.0) * exp(c(0.1) * c(x) + c(0.2)));
+end;
+

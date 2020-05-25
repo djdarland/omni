@@ -1,0 +1,47 @@
+diff ( y2 , x , 5 ) = y1 ;
+diff ( y1 , x , 1 ) = neg(diff (y2 , x,4)) ;
+!
+Digits := 64;
+max_terms := 40;
+!
+x_start := c(0.1);
+x_end := c(0.7);
+#
+# Trouble about Pi/4???
+#
+diff(y1,0,exact_soln_y1(x_start));
+diff(y2,0,exact_soln_y2(x_start));
+diff(y2,1,exact_soln_y2p(x_start));
+diff(y2,2,exact_soln_y2pp(x_start));
+diff(y2,3,exact_soln_y2ppp(x_start));
+diff(y2,4,exact_soln_y2pppp(x_start));
+glob_look_poles := true;
+glob_max_h := c(0.1);
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 3;
+!
+exact_soln_y1 := proc(x)
+return(	 cos(c(x)) );
+end;
+exact_soln_y2 := proc(x)
+return(	sin(c(x)) + c(10.0) * c(x) + c(10.0));
+end;
+exact_soln_y2p := proc(x)
+return(	cos(c(x)) + c(10.0));
+end;
+exact_soln_y2pp := proc(x)
+return( neg(sin(c(x))));
+end;
+exact_soln_y2ppp := proc(x)
+return(	neg(cos(c(x))));
+end;
+exact_soln_y2pppp := proc(x)
+return(   sin(c(x)));
+end;
+

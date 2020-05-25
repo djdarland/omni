@@ -1,0 +1,112 @@
+omnisode.rb:    $TEMP_DIR = '/media/ramdisk'
+omnisode.rb:  then $TEMP_DIR = '/cygdrive/R/Temp'
+omnisode.rb:  then  $TEMP_DIR = 'TEMP'
+omnisode.rb:  then $TEMP_DIR = 'R:\\Temp'
+omnisode.rb:  else $TEMP_DIR = 'TEMP'
+omnisode.rb:    $outhdr[local_fno] = File.new(File.join($TEMP_DIR,"atomhdr" + local_fno.to_s + ".mxi"),"w")
+omnisode.rb:  $outfile = File.new(File.join($TEMP_DIR,"diffeq.tmp"),"w")
+omnisode.rb:  $infile = File.new(File.join($TEMP_DIR,"atomout1.mxi"),"r")
+omnisode.rb:  $infile = File.new(File.join($TEMP_DIR,"atomout2.mxi"),"r")
+omnisode.rb:    $fname = File.join($TEMP_DIR,"atomhdr" + local_fno.to_s + ".mxi")
+omnisode.rb:  $infile = File.new(File.join($TEMP_DIR,"atomout3.mxi"),"r")
+omnisode.rb:  $infile = File.new(File.join($TEMP_DIR,"atomout4.mxi"),"r")
+omnisode.rb:  $infile = File.new(File.join($TEMP_DIR,"atomout5.mxi"),"r")
+omnisode.rb:  $infile = File.new(File.join($TEMP_DIR,"atomoutmain.mxi"),"r")
+omnisode.rb:  $cnt_file = File.new(File.join($TEMP_DIR,"diffeq.tmp"),"r")
+omnisode.rb:  echout = File.new(File.join($TEMP_DIR,"echout.mxi"),"w")
+omnisode.rb:  echoin = File.new(File.join($TEMP_DIR,"echout.mxi"),"r")
+omnisode.rb:# echo_problem($infile,File.join($TEMP_DIR,$fname))
+omnisode.rb:$outfilemain = File.new(File.join($TEMP_DIR,"atomoutmain.mxi"),"w")
+omnisode.rb:$outfile1 = File.new(File.join($TEMP_DIR,"atomout1.mxi"),"w")
+omnisode.rb:load File.join($TEMP_DIR,'difffile.rb')
+omnisode.rb:$outfile2 = File.new(File.join($TEMP_DIR,"atomout2.mxi"),"w")
+omnisode.rb:$outfile4 = File.new(File.join($TEMP_DIR,"atomout4.mxi"),"w")
+omnisode.rb:$outfile5 = File.new(File.join($TEMP_DIR,"atomout5.mxi"),"w")
+omnisode.rb:$outfile3 = File.new(File.join($TEMP_DIR,"atomout3.mxi"),"w")
+omnisode.rb~:    $TEMP_DIR = 'TEMP'
+omnisode.rb~:  then $TEMP_DIR = '/cygdrive/R/Temp'
+omnisode.rb~:  then  $TEMP_DIR = 'TEMP'
+omnisode.rb~:  then $TEMP_DIR = 'R:\\Temp'
+omnisode.rb~:  else $TEMP_DIR = 'TEMP'
+omnisode.rb~:    $outhdr[local_fno] = File.new(File.join($TEMP_DIR,"atomhdr" + local_fno.to_s + ".mxi"),"w")
+omnisode.rb~:  $outfile = File.new(File.join($TEMP_DIR,"diffeq.tmp"),"w")
+omnisode.rb~:  $infile = File.new(File.join($TEMP_DIR,"atomout1.mxi"),"r")
+omnisode.rb~:  $infile = File.new(File.join($TEMP_DIR,"atomout2.mxi"),"r")
+omnisode.rb~:    $fname = File.join($TEMP_DIR,"atomhdr" + local_fno.to_s + ".mxi")
+omnisode.rb~:  $infile = File.new(File.join($TEMP_DIR,"atomout3.mxi"),"r")
+omnisode.rb~:  $infile = File.new(File.join($TEMP_DIR,"atomout4.mxi"),"r")
+omnisode.rb~:  $infile = File.new(File.join($TEMP_DIR,"atomout5.mxi"),"r")
+omnisode.rb~:  $infile = File.new(File.join($TEMP_DIR,"atomoutmain.mxi"),"r")
+omnisode.rb~:  $cnt_file = File.new(File.join($TEMP_DIR,"diffeq.tmp"),"r")
+omnisode.rb~:  echout = File.new(File.join($TEMP_DIR,"echout.mxi"),"w")
+omnisode.rb~:  echoin = File.new(File.join($TEMP_DIR,"echout.mxi"),"r")
+omnisode.rb~:# echo_problem($infile,File.join($TEMP_DIR,$fname))
+omnisode.rb~:$outfilemain = File.new(File.join($TEMP_DIR,"atomoutmain.mxi"),"w")
+omnisode.rb~:$outfile1 = File.new(File.join($TEMP_DIR,"atomout1.mxi"),"w")
+omnisode.rb~:load File.join($TEMP_DIR,'difffile.rb')
+omnisode.rb~:$outfile2 = File.new(File.join($TEMP_DIR,"atomout2.mxi"),"w")
+omnisode.rb~:$outfile4 = File.new(File.join($TEMP_DIR,"atomout4.mxi"),"w")
+omnisode.rb~:$outfile5 = File.new(File.join($TEMP_DIR,"atomout5.mxi"),"w")
+omnisode.rb~:$outfile3 = File.new(File.join($TEMP_DIR,"atomout3.mxi"),"w")
+omnisodetst.rb:    $TEMP_DIR = 'TEMP'
+omnisodetst.rb:  then $TEMP_DIR = '/cygdrive/R/Temp'
+omnisodetst.rb:  then  $TEMP_DIR = 'TEMP'
+omnisodetst.rb:  then $TEMP_DIR = 'R:\\Temp'
+omnisodetst.rb:  else $TEMP_DIR = 'TEMP'
+omnisodetst.rb:    $outhdr[local_fno] = File.new(File.join($TEMP_DIR,"atomhdr" + local_fno.to_s + ".mxi"),"w")
+omnisodetst.rb:  $outfile = File.new(File.join($TEMP_DIR,"diffeq.tmp"),"w")
+omnisodetst.rb:  $infile = File.new(File.join($TEMP_DIR,"atomout1.mxi"),"r")
+omnisodetst.rb:  $infile = File.new(File.join($TEMP_DIR,"atomout2.mxi"),"r")
+omnisodetst.rb:    $fname = File.join($TEMP_DIR,"atomhdr" + local_fno.to_s + ".mxi")
+omnisodetst.rb:  $infile = File.new(File.join($TEMP_DIR,"atomout3.mxi"),"r")
+omnisodetst.rb:  $infile = File.new(File.join($TEMP_DIR,"atomout4.mxi"),"r")
+omnisodetst.rb:  $infile = File.new(File.join($TEMP_DIR,"atomout5.mxi"),"r")
+omnisodetst.rb:  $infile = File.new(File.join($TEMP_DIR,"atomoutmain.mxi"),"r")
+omnisodetst.rb:  $cnt_file = File.new(File.join($TEMP_DIR,"diffeq.tmp"),"r")
+omnisodetst.rb:  echout = File.new(File.join($TEMP_DIR,"echout.mxi"),"w")
+omnisodetst.rb:  echoin = File.new(File.join($TEMP_DIR,"echout.mxi"),"r")
+omnisodetst.rb:# echo_problem($infile,File.join($TEMP_DIR,$fname))
+omnisodetst.rb:$outfilemain = File.new(File.join($TEMP_DIR,"atomoutmain.mxi"),"w")
+omnisodetst.rb:$outfile1 = File.new(File.join($TEMP_DIR,"atomout1.mxi"),"w")
+omnisodetst.rb:load File.join($TEMP_DIR,'difffile.rb')
+omnisodetst.rb:$outfile2 = File.new(File.join($TEMP_DIR,"atomout2.mxi"),"w")
+omnisodetst.rb:$outfile4 = File.new(File.join($TEMP_DIR,"atomout4.mxi"),"w")
+omnisodetst.rb:$outfile5 = File.new(File.join($TEMP_DIR,"atomout5.mxi"),"w")
+omnisodetst.rb:$outfile3 = File.new(File.join($TEMP_DIR,"atomout3.mxi"),"w")
+preodein.rb:    $TEMP_DIR = 'TEMP'
+preodein.rb:  then $TEMP_DIR = '/cygdrive/R/Temp'
+preodein.rb:  then  $TEMP_DIR = 'TEMP'
+preodein.rb:  then $TEMP_DIR = 'R:\\Temp'
+preodein.rb:  else $TEMP_DIR = 'TEMP'
+preodein.rb:$fnameout = File.join($TEMP_DIR, $fnamein + "postode.ode")
+preodein.rb:$diffout = File.join($TEMP_DIR, "difffile.rb")
+tomni.rb:    $TEMP_DIR = 'TEMP'
+tomni.rb:    system("cp license.t " + $TEMP_DIR)
+tomni.rb:    $TEMP_DIR = '/cygdrive/R/Temp'
+tomni.rb:    system("cp license.t " + $TEMP_DIR)
+tomni.rb:    system("cp atsinc.rb " + $TEMP_DIR)
+tomni.rb:  then  $TEMP_DIR = 'TEMP'
+tomni.rb:    system("cp license.t " + $TEMP_DIR)
+tomni.rb:    system("cp atsinc.rb " + $TEMP_DIR)
+tomni.rb:  then $TEMP_DIR = 'R:\\Temp'
+tomni.rb:    system("copy license.t " + $TEMP_DIR)
+tomni.rb:    system("copy atsinc.rb " + $TEMP_DIR)
+tomni.rb:  else $TEMP_DIR = 'TEMP'
+tomni.rb:    system("copy license.t " + $TEMP_DIR)
+tomni.rb:    system("copy atsinc.rb " + $TEMP_DIR)
+tomni.rb:  tempdiffeqpgm = File.join($TEMP_DIR, "diffeq." + ofile)
+tomni.rb:  tempdiffeqpgmexe = File.join($TEMP_DIR, "diffeq." + ofile + "_" + os)
+tomni.rb:  if not tran(File.join($TEMP_DIR,"omnisodetst.rb"),  "omnisodetst.rb")
+tomni.rb:  cmd = "ruby omnisodetst.rb" + " " + File.join($TEMP_DIR, odefile + "postode") + " " + odefile + " " +  $target + " " +  remark + "  >" + File.join($TEMP_DIR,"mxout1.tmp") + " 2>" + File.join($TEMP_DIR,"mxout2.tmp")
+tomni.rb:  cmd = "ruby preindent.rb <" + File.join($TEMP_DIR,"diffeq.tmp") + "  >" + tempdiffeqpgm + " 2>" + File.join($TEMP_DIR,"djdid2.tmp")
+tomni.rb:  if File.exists?(File.join($TEMP_DIR,"djdout.tmp")) then
+tomni.rb:    File.delete(File.join($TEMP_DIR,"djdout.tmp"))
+tomni.rb:  if File.exists?(File.join($TEMP_DIR,"djdout2.tmp")) then
+tomni.rb:    File.delete(File.join($TEMP_DIR,"djdout2.tmp"))
+tomni.rb:    cmd = "./" + tempdiffeqpgmexe + " >" + resultsfile + " 2>" + File.join($TEMP_DIR,"djdout2.tmp")
+tomni.rb:    cmd =  lang_cmd + " " + flags1 + tempdiffeqpgm + " >" + resultsfile + " 2>" + File.join($TEMP_DIR,"djdout2.tmp")
+tomni.rb:            if not tran(lang_tbl[lang_key].math + 'inc.rb' , File.join($TEMP_DIR, 'langinc.rb')) then
+tomni.rb:            if not tran(lang_tbl[lang_key].math + 'inc.rb' , File.join($TEMP_DIR,'langinc.rb')) then
+tomni.rb:            cmd = 'ruby djdpre.rb <atsgen.rb >' + File.join($TEMP_DIR,'atsgentst.rb') 
+tomni.rb:            cmd = 'ruby ' + File.join($TEMP_DIR,'atsgentst.rb') + '  >' + File.join($TEMP_DIR,'mxout3.tmp') + ' 2>' + File.join($TEMP_DIR,'mxout4.tmp')
+tomni.rb:            cmd = "ruby djdpre.rb <omnisode.rb >" + File.join($TEMP_DIR,"omnisodetst.rb")

@@ -1,0 +1,38 @@
+diff(y,t,2) = 6.0*y*y + t;
+!
+# C File ex2_1.ato
+# C Example 2-1.  Illustrates simple ODEINP file
+# C Y.F. Chang, ATOMFT User Manual, Version 3.11
+# C Partial results:
+# C        Step number     0 at     T =  0.00000E+00
+# C         Y  1.00000E+00  0.00000E+00
+# C    This solution will be limited by the machine roundoff.
+# C
+# C        Step number     1 at     T =  6.30000E-01
+# C         Y  3.00802E+00  1.03304E+01
+# C
+# C        Step number     2 at     T =  1.10000E+00
+# C         Y  8.77740E+01  1.64472E+03
+# C
+# C First Painleve transcendent
+max_terms := 30;
+Digits := 16;
+!
+t_start := 0.000; 
+t_end := 1.300;
+diff(y,0,1.000);
+diff(y,1,0.000);
+glob_look_poles := true;
+glob_type_given_pole := 0;
+glob_min_h := 0.1;
+glob_max_h := 0.1;
+glob_display_interval := 0.1;
+
+!
+# Comment 5
+exact_soln_y := proc(t)
+# Comment 6
+return(0);
+# Comment 7
+end;
+!

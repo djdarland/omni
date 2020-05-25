@@ -1,0 +1,21 @@
+diff ( y , x , 1 ) = x * Si( 1.0 );
+!
+# Comment 1
+Digits := 32;
+max_terms := 30;
+# Comment 2
+!
+# Comment 3
+x_start := 0.1;
+x_end := 1.0 ;
+diff(y,0,exact_soln_y(x_start));
+glob_look_poles := true;
+glob_max_iter := 1000000;
+# Comment 4
+!
+# Comment 5
+exact_soln_y := proc(x)
+# Comment 6
+return( x * x * Si(1.0) / 2.0);
+# Comment 7
+end;

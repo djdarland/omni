@@ -1,0 +1,30 @@
+diff ( y , x , 1 ) = tanh(sqrt(2.0*x + 3.0));
+!
+Digits := 32;
+max_terms := 30;
+!
+x_start := c(0.1);
+x_end := c(5.0) ;
+diff(y,0,exact_soln_y(x_start));
+glob_look_poles := true;
+glob_max_h := 0.1;
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 1;
+#  Real Part 
+array_given_rad_poles[1,1] := c(-1.5);  
+# Imag Part 
+array_given_rad_poles[1,2] := c(0.0);
+# Order 
+array_given_ord_poles[1,1] := c(0.5); 
+# Not Used
+array_given_ord_poles[1,2] := c(0.0);  
+!
+exact_soln_y := proc(x)
+return(c(0.0));
+end;

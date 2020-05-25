@@ -1,0 +1,32 @@
+diff ( y , x , 1 ) = neg(2.0) / ( x - 6.0 ) / ( x - 6.0 ) / ( x - 6.0) ;
+!
+Digits := 30;
+max_terms := 20;
+!
+x_start := c(2.0);
+x_end := c(3.0);
+
+diff(y,0,exact_soln_y(x_start));
+glob_look_poles := true;
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 1;
+#  Real Part 
+array_given_rad_poles[1,1] := c(6.0);  
+# Imag Part 
+array_given_rad_poles[1,2] := c(0.0);
+# Order 
+array_given_ord_poles[1,1] := c(3.0); 
+# Not Used
+array_given_ord_poles[1,2] := c(0.0);  
+!
+exact_soln_y := proc(x)
+return(c(1.0)/ ( c(x) - c(6.0) ) / ( c(x) - c(6.0) ));
+end;
+
+

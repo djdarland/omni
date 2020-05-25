@@ -1,0 +1,34 @@
+diff ( y , x , 1 ) = cosh(sqrt(0.1 * x + 0.2));
+!
+Digits := 32;
+max_terms := 30;
+!
+x_start := c(-1.9);
+x_end := c(-1.8) ;
+diff(y,0,exact_soln_y(x_start));
+glob_look_poles := true;
+glob_max_h := 0.01;
+glob_upper_ratio_limit := c(1.001);
+glob_lower_ratio_limit := c(0.999);
+# glob_min_h := (0.000001);
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 1;
+#  Real Part 
+array_given_rad_poles[1,1] := c(-2.0);  
+# Imag Part 
+array_given_rad_poles[1,2] := c(0.0);
+# Order 
+array_given_ord_poles[1,1] := c(0.5); 
+# Not Used
+array_given_ord_poles[1,2] := c(0.0);  
+!
+exact_soln_y := proc(x)
+# return(20.0 * sqrt(0.1 * x + 0.2) * sinh( sqrt(0.1 * x + 0.2)) - 20.0 * cosh( sqrt(0.1 * x + 0.2))); 
+return(c(20.0) * sqrt(c(0.1) * c(x) + c(0.2)) * sinh( sqrt(c(0.1) * c(x) + c(0.2))) - c(20.0) * cosh( sqrt(c(0.1) * c(x) + c(0.2)))); 
+end;

@@ -1,0 +1,60 @@
+diff (x1,t,1) = 4.0 * x2 -  2.0 * diff (x2,t ,1) - 2.0 * x1;
+diff (x2,t,2) = 3.0 * diff(x2,t,1) - 2.0 * x2 - diff(x1,t,2) - diff (x1,t,1) + x1;
+!
+Digits := 64;
+max_terms:=40;
+!
+# problem from Boyce DePrima - 
+# _Elementary Differential Equations and Boundary Value Problems_
+# page 269
+# 
+t_start := 1.5;
+#
+# did poorly with t_start := 0.5 
+# Main help is smaller h
+#
+t_end := 8.0; 
+diff(x1,0,exact_soln_x1(t_start));
+# I think following line should be omitted
+# diff(x1,1,exact_soln_x1p(t_start));
+diff(x2,0,exact_soln_x2(t_start));
+diff(x2,1,exact_soln_x2p(t_start));
+glob_look_poles := true;
+glob_max_h := 0.000001;
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 0;
+!
+exact_soln_x1 := proc(t)
+  local c1,c2,c3;
+   c1 := 1.0;
+   c2 := 0.0002;
+   c3 := 0.0003;
+return(2.0 * c1 + 6.0 * c3 * exp(-t));
+end;
+exact_soln_x1p := proc(t)
+  local c1,c2,c3;
+   c1 := 1.0;
+   c2 := 0.0002;
+   c3 := 0.0003;
+return(   - 6.0 * c3 * exp(-t));
+end;
+exact_soln_x2 := proc(t)
+  local c1,c2,c3;
+   c1 := 1.0;
+   c2 := 0.0002;
+   c3 := 0.0003;
+return(c1 + c2 * exp(2.0 * t) + c3 * exp(-t));
+end;
+exact_soln_x2p := proc(t)
+  local c1,c2,c3;
+   c1 := 1.0;
+   c2 := 0.0002;
+   c3 := 0.0003;
+return(   2.0 * c2 * exp(2.0 * t) - c3 * exp(-t));
+end;

@@ -1,0 +1,16 @@
+diff ( y , x , 1 ) = sin ( x ) ;
+!
+Digits := 32;
+max_terms := 30;
+hello := 1;
+!
+x_start := 0.1;
+x_end := 1.0;
+diff(y,0,exact_soln_y(x_start));
+glob_look_poles := true;
+glob_max_iter := 1000000;
+glob_max_h := 0.5;
+!
+exact_soln_y := proc(x)
+return(2.0 - cos(x));
+end;

@@ -1,0 +1,33 @@
+diff ( y , x , 1 ) = sqrt(x);
+!
+Digits := 32;
+max_terms := 30;
+!
+x_start := -2.0;
+x_end := -1.5;
+diff(y,0,exact_soln_y(x_start));
+glob_look_poles := true;
+glob_max_iter := 500;
+glob_max_h := 0.5;
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 4;
+#  Real Part 
+array_given_rad_poles[1,1] := 0.0;  
+# Imag Part 
+array_given_rad_poles[1,2] := 0.001;
+# Order 
+array_given_ord_poles[1,1] := 1.0; 
+# Not Used
+array_given_ord_poles[1,2] := 0.0;  
+!
+exact_soln_y := proc(x)
+return(0.0) ;
+end;
+
+

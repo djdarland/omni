@@ -1,0 +1,27 @@
+diff ( y , x , 1 ) =  arctan ( x ) ;
+!
+Digits := 32;
+max_terms := 30;
+!
+x_start := c(2.0);
+x_end := c(3.0) ;
+#
+# Trouble further
+#
+diff(y,0,exact_soln_y(x_start));
+glob_look_poles := true;
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 0;
+!
+exact_soln_y := proc(x)
+
+return(c(x)*arctan(c(x))-c(0.5)*ln(c(x)*c(x)+c(1.0)));
+
+end;
+

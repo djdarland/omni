@@ -1,0 +1,37 @@
+diff ( y , x , 1 ) = y * y;
+!
+Digits := 32;
+max_terms := 20;
+!
+# problem from Boyce DePrima - 
+# _Elementary Differential Equations and Boundary Value Problems_
+# page 23
+# Singularity at x = 0.5 (which depends on init condition)
+# 
+x_start := c(0.0);
+x_end := c(0.2) ;
+diff(y,0,exact_soln_y(x_start));
+glob_look_poles := true;
+#
+# Not Given = 0
+# Real = 1
+# Complex = 2 
+# No Pole = 3
+# Impossible Eq = 4
+#
+glob_type_given_pole := 1;
+#  Real Part 
+array_given_rad_poles[1,1] := c(0.5);  
+# Imag Part 
+array_given_rad_poles[1,2] := c(0.0);
+# Order 
+array_given_ord_poles[1,1] := c(0.0); 
+# Not Used
+array_given_ord_poles[1,2] := c(0.0);  
+
+
+
+!
+exact_soln_y := proc(x)
+return(c(2.0)/(c(1.0) - c(2.0)*c(x)));
+end;
