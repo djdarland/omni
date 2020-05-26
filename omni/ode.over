@@ -1,10 +1,11 @@
 glob_desired_digits_correct := 12;
 glob_max_minutes := (3.0);
-glob_subiter_method := 3;
+glob_subiter_method := 2;
 glob_max_iter := 1000000 ;
 glob_upper_ratio_limit := c(1.000001);
 glob_lower_ratio_limit := c(0.999999);
 glob_look_poles := true;
 glob_h := c(0.001);
 glob_display_interval := c(0.01); 
+glob_h_reason := 1;
 !
