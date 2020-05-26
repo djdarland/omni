@@ -1,0 +1,4 @@
+Needed to create html/omniresults after cloning
+
+Look into glob_h_reason
+Set it to 1 in ode.over  -- looks better on quick look!!!
