@@ -1,0 +1,5 @@
+Had to create omniresults subfolder in html
+
+Changed exists? to exist?
+
+Changed format of each_key (do ... end) insead of ({ ... })

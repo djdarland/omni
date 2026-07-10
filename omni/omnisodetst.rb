@@ -5933,12 +5933,12 @@ def write_maple_main_top_matter(fd)
 end
 
 def open_ode_file()
-  if File.exists?($fname) then
+  if File.exist?($fname) then
     $stderr.puts "Opening " + $fname
     $infile = File.new($fname,"r")
   else
     $fname += ".ode"
-    if File.exists?($fname) then
+    if File.exist?($fname) then
       $stderr.puts "Opening " + $fname
       $infile = File.new($fname,"r")
     else
@@ -6037,7 +6037,7 @@ $infile.close
 open_ode_file()
 
 
-if File.exists?(sl(GEN,ATSFILE,0,0,0,0)) then
+if File.exist?(sl(GEN,ATSFILE,0,0,0,0)) then
   $libfile = File.new(sl(GEN,ATSFILE,0,0,0,0))
 else
   puts 'Cannot File.new(' + sl(GEN,ATSFILE,0,0,0,0) + ")"

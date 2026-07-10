@@ -74,12 +74,12 @@ def single_test(lang,lang_cmd,odefile,remark,browser,flags1,flags2,mode,os,langs
   puts "resultsfile =" + resultsfile
   tempdiffeqpgmexe = File.join($TEMP_DIR, "diffeq." + ofile + "_" + os)
   puts "tempdiffeqpgmexe =" + tempdiffeqpgmexe
-  if File.exists?(targetdiffeqpgm) then
+  if File.exist?(targetdiffeqpgm) then
     puts "would overwrite data and invalidate table - (" + targetdiffeqpgm +")"
     exit(1)
   end
   puts "odefile=" + odefile
-  if File.exists?(odefile + ".ode") then
+  if File.exist?(odefile + ".ode") then
     if not tran( odefile + '.ode' , File.join($target,odefile + '.ode.txt')) then
       puts "error copying " + odefile + '.ode'
       exit(1)
@@ -120,10 +120,10 @@ def single_test(lang,lang_cmd,odefile,remark,browser,flags1,flags2,mode,os,langs
     puts "error transfering " + targetdiffeqpgm
     exit(1)
   end
-  if File.exists?(File.join($TEMP_DIR,"djdout.tmp")) then
+  if File.exist?(File.join($TEMP_DIR,"djdout.tmp")) then
     File.delete(File.join($TEMP_DIR,"djdout.tmp"))
   end
-  if File.exists?(File.join($TEMP_DIR,"djdout2.tmp")) then
+  if File.exist?(File.join($TEMP_DIR,"djdout2.tmp")) then
     File.delete(File.join($TEMP_DIR,"djdout2.tmp"))
   end
   if lang == "c" or lang == "c++" then
@@ -149,7 +149,7 @@ def single_test(lang,lang_cmd,odefile,remark,browser,flags1,flags2,mode,os,langs
     end
     puts tempdiffeqpgm + " successfull"
   end
-  if File.exists?(File.join($target,"body.html")) then
+  if File.exist?(File.join($target,"body.html")) then
     if not tran(File.join($target,"body.html") , File.join($target,"body.work")) then
       puts "error copying body.html"
       exit(1)
@@ -175,6 +175,7 @@ def get_answer(lang)
   while (answer != 'n' and answer != 'y') do
     puts 'Do you want to test ' + lang + '? (y/n)'
     answer = gets.rstrip
+    puts "answer = " + answer
   end
   if answer == 'y'
     return true
@@ -216,7 +217,7 @@ def get_target(os,name,math)
   path = File.join("html","omniresults",target)
   puts "target=" + target
   puts "path=" + path
-  while File.exists?(path) do
+  while File.exist?(path) do
     puts "Target directory " + path + " exists"
     line = 'u'
     while line != 'y' and line != 'd' do 
@@ -359,8 +360,19 @@ end # lang_info
 
 
 def run_tests(os,name)
+  puts "In run_tests"
+  puts "os = " + os
+  puts "name = " + name
   puts "Have you turned off SpiderOak or any other unneeded background programs? (y/n)"
-  answer = gets.chomp.rstrip.lstrip
+#  answer = gets.chomp.rstrip.lstrip
+  answer = gets
+  puts "a " + answer
+  answer = answer.chomp
+  puts "b " + answer
+  answer = answer.rstrip
+  puts "c " + answer
+  answer = answer.lstrip
+  puts "d " + answer
   if (answer == 'y') then
     puts "Omnisode tests for " + os
     puts "Queue tests"
@@ -380,21 +392,21 @@ def run_tests(os,name)
     
     
     # (lang,cmd,suffix,to_test,flags1,flags2,target)
-    lang_tbl.each_key {|id|
+    lang_tbl.each_key  do |id|
       lang_tbl[id].to_test = get_answer(id)
-    }
-    lang_tbl.each_key{|id|
+    end
+    lang_tbl.each_key do |id|
       if lang_tbl[id].to_test  then
         lang_tbl[id].target = get_target(os,name,lang_tbl[id].math)
       end
-    }
+    end
     name_1 = name
     name = name + ".odes"
     # tested queued - Run selected
     
-    oss_tbl.each_key{|os_key|
+    oss_tbl.each_key do |os_key|
       if os == os_key then
-        lang_tbl.each_key{|lang_key|
+        lang_tbl.each_key do |lang_key|
           if lang_tbl[lang_key].to_test then
             lang = lang_tbl[lang_key].lang
             puts 'testing ' + lang_tbl[lang_key].lang + ' with ' + oss_tbl[os_key].os
@@ -408,11 +420,11 @@ def run_tests(os,name)
             end
             tdir = File.join("html","omniresults", lang_tbl[lang_key].math + "_" + name_1 + "_" + os_key)
             puts "tdir CHECK " + tdir
-            if not File.exists?(tdir) then
+            if not File.exist?(tdir) then
               puts "tdir MAKE " + tdir
               Dir.mkdir(tdir)
             end
-            if File.exists?("ode.over") then
+            if File.exist?("ode.over") then
               if not tran('ode.over',File.join(tdir,"ode.over.txt")) then
                 puts 'error copying ode.over'
                 exit(1)
@@ -452,7 +464,7 @@ def run_tests(os,name)
                 $linein = $linein.chomp.rstrip.lstrip
                 odefile = getode()
 #                puts "odefile sss = " + odefile
-                if File.exists?(odefile + ".ode") then
+                if File.exist?(odefile + ".ode") then
                   remark = getremark()
                   single_test(lang_key,lang_tbl[lang_key].cmd,odefile,remark,oss_tbl[os_key].browser,lang_tbl[lang_key].flags1,lang_tbl[lang_key].flags2,"single",os,lang_tbl[lang_key].suffix,oss_tbl[os_key].editor,name_1,lang_tbl[lang_key].math)
                 end
@@ -460,7 +472,7 @@ def run_tests(os,name)
             end
             fd.close
           end
-        }
+        end
         lang_tbl.each_key{|id|
           if lang_tbl[id].to_test  then
             browser = oss_tbl[os_key].browser
@@ -477,7 +489,7 @@ def run_tests(os,name)
           end
         }
       end
-    }
+    end
   end # Spideroak
 end # run tests
 
@@ -538,10 +550,13 @@ def tran3(infile1,infile2,infile3,outfile)
 end
 
 def get_odes_list()
-  name = 'no'
-  while not File.exists?(name + ".odes")
+  puts "Enter odes list file list name"
+  name=gets.chomp.rstrip.lstrip
+  puts "odes name = " + name
+  while not File.exist?(name + ".odes")
     puts "Enter odes list file list name"
     name=gets.chomp.rstrip.lstrip
+    puts "odes name = " + name
   end
   return(name)
 end

@@ -354,7 +354,7 @@ $fnameout = File.join($TEMP_DIR, $fnamein + "postode.ode")
 $diffout = File.join($TEMP_DIR, "difffile.rb")
 $fnamein += ".ode"
 
-if File.exists?($fnamein) then 
+if File.exist?($fnamein) then 
   puts "Opening " + $fnamein
   $infile = File.new($fnamein,"r")
   $outfile = File.new($fnameout,"w")
@@ -367,7 +367,7 @@ else
 end
 
 $overode = "ode.over"
-if File.exists?($overode) then 
+if File.exist?($overode) then 
   puts "Opening " + $overode
   $overfile = File.new($overode,"r")
   $over = true
