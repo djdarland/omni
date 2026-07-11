@@ -1,13 +1,13 @@
 ####################################################################
 #
-#	File:     rubyinc.rb
+#	File:     cccinc.rb
 #
 #	Subject:  Part of a Ruby program to generate a program ("diffeq.---")
 #                  to solve a system of ordinary differential equations
 #                  with long Taylor series. Intended to Support
 #                  programs with Ruby (native math) Ruby (APFP),
 #                  Maple 12, maxima.
-#                 This file causes Maple to be generated
+#                 This file causes c++ to be generated
 #
 #	Author:   Dennis J. Darland
 #
@@ -34,5 +34,4 @@
 
 
 
-
-GEN = RUBY
+GEN = RUBY_APFP

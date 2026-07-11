@@ -197,7 +197,7 @@ end
 # increment etc which in a way cannot have error.
 def c0(val)
 
-  unless val.kind_of?(Fixnum) || val.kind_of?(Integer)
+  unless val.kind_of?(Integer)
     v = val.to_s
     return(ap_in(v))
   else
@@ -207,7 +207,7 @@ end
 def c(val)
 #  $stderr.puts " in c val = " + val.to_s
   unless val.kind_of?(Apfp)
-    unless val.kind_of?(Fixnum) || val.kind_of?(Integer)
+    unless val.kind_of?(Integer)
       v = val.to_s
       return(ap_in(v))
     else

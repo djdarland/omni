@@ -84,11 +84,11 @@ if (glob_iolevel >= iolevel)  then # if number 2
 puts dump_label + series_name2 + "[" + sub.to_s + "," + i.to_s + "]" + arr_series2[sub,i].to_s
 
 INDENT(2)
- end# end do number 0
+ end# end do number 1
 sub += 1;
 
 INDENT(2)
- end# end do number -1
+ end# end do number 1
 
  # INDENT(2)
  end# end if 2
@@ -111,6 +111,7 @@ puts "cs_info " + str  + " glob_correct_start_flag = " , glob_correct_start_flag
 def logitem_time(fd,secs_in)
 #INDENT(1)
 fd.printf("<td>")
+secs_in  = secs_in.to_i
   if (secs_in >= 0)  then # if number 2
  # INDENT(1)
     years_int  =  int_trunc(secs_in / glob_sec_in_year)
@@ -168,7 +169,8 @@ fd.printf("</td>")
 # Begin Function number 11
 def omniout_timestr(secs_in)
 #INDENT(1)
-  if (secs_in >= 0)  then # if number 5
+secs_in  = secs_in.to_i
+  if (secs_in >= 0) then # if number 5
  # INDENT(1)
     years_int  =  int_trunc(secs_in / glob_sec_in_year)
     sec_temp  =  (secs_in % glob_sec_in_year)
@@ -230,13 +232,13 @@ def zero_ats_ar(arr_a)
  
  
 iii  = 1
-while (iii <= ATS_MAX_TERMS) do # do number -1
+while (iii <= ATS_MAX_TERMS) do # do number 1
  # INDENT(1)
 arr_a [iii] = glob__0
 iii  =  iii + 1
 
 INDENT(2)
- end# end do number -1
+ end# end do number 2
  
 
  INDENT(2)
@@ -256,7 +258,7 @@ def ats(mmm_ats,arr_a,arr_b,jjj_ats)
  # INDENT(1)
     ma_ats  =  mmm_ats + 1
     iii_ats  =  jjj_ats
-    while (iii_ats <= mmm_ats) do # do number -1
+    while (iii_ats <= mmm_ats) do # do number 2
  # INDENT(1)
       lll_ats  =  ma_ats - iii_ats
 if ((lll_ats <= ATS_MAX_TERMS  and (iii_ats <= ATS_MAX_TERMS) ))  then # if number 9
@@ -268,7 +270,7 @@ if ((lll_ats <= ATS_MAX_TERMS  and (iii_ats <= ATS_MAX_TERMS) ))  then # if numb
       iii_ats  =  iii_ats + 1
 
 INDENT(2)
- end# end do number -1
+ end# end do number 3
 
  # INDENT(2)
  end# end if 8
@@ -292,7 +294,7 @@ def att(mmm_att,arr_aa,arr_bb,jjj_att)
  # INDENT(1)
     ma_att  =  mmm_att + 2
     iii_att  =  jjj_att
-    while ((iii_att < mmm_att) and (iii_att <= ATS_MAX_TERMS) )   do # do number -1
+    while ((iii_att < mmm_att) and (iii_att <= ATS_MAX_TERMS) )   do # do number 3
  # INDENT(1)
       lll_att  =  ma_att - iii_att
       al_att  =  (lll_att - 1)
@@ -305,7 +307,7 @@ if ((lll_att <= ATS_MAX_TERMS  and (iii_att <= ATS_MAX_TERMS) ))  then # if numb
       iii_att  =  iii_att + 1
 
 INDENT(2)
- end# end do number -1
+ end# end do number 4
     ret_att  =  ret_att / c(mmm_att) 
 
  # INDENT(2)
@@ -548,7 +550,7 @@ def comp_rad_from_ratio(term1,term2,last_no)
  
  
  
-if (float_abs(term2) > glob__0)  then # if number 14
+if ( not term2.maybe_zero) then # if number 14
  # INDENT(1)
 ret =  float_abs(term1 * glob_h / term2)
 
@@ -573,7 +575,7 @@ def comp_ord_from_ratio(term1,term2,last_no)
  
  
  
-if (float_abs(term2) > glob__0)  then # if number 14
+if ( not term2.maybe_zero) then # if number 14
  # INDENT(1)
 ret = glob__1 +  float_abs(term2) * c(last_no) * ln(float_abs(term1 * glob_h / term2))/ln(c(last_no))
 
@@ -591,19 +593,6 @@ ret = glob_larger_float
  INDENT(2)
  end # End Function number 28
 # Begin Function number 29
-def c(in_val) 
-#INDENT(1)
-#To Force Conversion when needed
- 
- 
- 
-ret = in_val
- return (   ret)
-#End Conversion
-
- INDENT(2)
- end # End Function number 29
-# Begin Function number 30
 def comp_rad_from_three_terms(term1,term2,term3,last_no) 
 #INDENT(1)
 #TOP THREE TERM RADIUS ANALYSIS
@@ -612,7 +601,7 @@ def comp_rad_from_three_terms(term1,term2,term3,last_no)
  
  
 temp = float_abs(term2*term2*c(last_no)+glob__m2*term2*term2-term1*term3*c(last_no)+term1*term3)
-if (float_abs(temp) > glob__0)  then # if number 14
+if ( not temp.maybe_zero) then # if number 14
  # INDENT(1)
 ret = float_abs((term2*glob_h*term1)/(temp))
 
@@ -628,8 +617,8 @@ ret = glob_larger_float
 #BOTTOM THREE TERM RADIUS ANALYSIS
 
  INDENT(2)
- end # End Function number 30
-# Begin Function number 31
+ end # End Function number 29
+# Begin Function number 30
 def comp_ord_from_three_terms(term1,term2,term3,last_no) 
 #INDENT(1)
 #TOP THREE TERM ORDER ANALYSIS
@@ -641,8 +630,8 @@ ret = float_abs((glob__4*term1*term3*c(last_no)-glob__3*term1*term3-glob__4*term
 #TOP THREE TERM ORDER ANALYSIS
 
  INDENT(2)
- end # End Function number 31
-# Begin Function number 32
+ end # End Function number 30
+# Begin Function number 31
 def comp_rad_from_six_terms(term1,term2,term3,term4,term5,term6,last_no) 
 #INDENT(1)
 #TOP SIX TERM RADIUS ANALYSIS
@@ -672,7 +661,7 @@ ord_no =  glob_larger_float
  else 
  #INDENT(1)
  
-if (float_abs(nr1*dr2 - nr2 * dr1) > glob__0)  then # if number 16
+if ( not (nr1*dr2 - nr2 * dr1).maybe_zero) then # if number 16
  # INDENT(1)
 rcs =  ((ds1*dr2 - ds2*dr1 +dr1*dr2)/(nr1*dr2 - nr2 * dr1))
 #(Manuels)  rcs  =  (ds1*dr2 - ds2*dr1)/(nr1*dr2 - nr2 * dr1)
@@ -730,8 +719,8 @@ glob_six_term_ord_save =  ord_no
 #BOTTOM SIX TERM RADIUS ANALYSIS
 
  INDENT(2)
- end # End Function number 32
-# Begin Function number 33
+ end # End Function number 31
+# Begin Function number 32
 def comp_ord_from_six_terms(term1,term2,term3,term4,term5,term6,last_no) 
 #INDENT(1)
  
@@ -741,8 +730,8 @@ def comp_ord_from_six_terms(term1,term2,term3,term4,term5,term6,last_no)
 #BOTTOM SIX TERM ORDER ANALYSIS
 
  INDENT(2)
- end # End Function number 33
-# Begin Function number 34
+ end # End Function number 32
+# Begin Function number 33
 def factorial_2(nnn) 
 #INDENT(1)
  
@@ -762,8 +751,8 @@ if (nnn > 0)  then # if number 14
  end# end if 14
 
  INDENT(2)
- end # End Function number 34
-# Begin Function number 35
+ end # End Function number 33
+# Begin Function number 34
 def factorial_1(nnn) 
 #INDENT(1)
  
@@ -799,8 +788,8 @@ ret = factorial_2(nnn)
  
 
  INDENT(2)
- end # End Function number 35
-# Begin Function number 36
+ end # End Function number 34
+# Begin Function number 35
 def factorial_3(mmm,nnn) 
 #INDENT(1)
  
@@ -836,239 +825,232 @@ ret = factorial_2(mmm)/factorial_2(nnn)
  
 
  INDENT(2)
- end # End Function number 36
-# Begin Function number 37
+ end # End Function number 35
+# Begin Function number 36
 def convfloat(mmm) 
 #INDENT(1)
  
- return(mmm.to_f)
  
+ return(mmm.to_f)
+
+ INDENT(2)
+ end # End Function number 36
+# Begin Function number 37
+def elapsed_time_seconds()
+#INDENT(1)
+ 
+ 
+ 
+ t = Time.now
+ return(t.to_i)
 
  INDENT(2)
  end # End Function number 37
 # Begin Function number 38
-def elapsed_time_seconds()
-#INDENT(1)
- 
- t = Time.now
- return(t.to_i)
- 
- 
-
- INDENT(2)
- end # End Function number 38
-# Begin Function number 39
 def expt(x,y)
 #INDENT(1)
-if ((x <= 0.0) and (y < 0.0)) then # if number 14
+if ((c(x) <= glob__0) and (c(y) < glob__0)) then # if number 14
  # INDENT(1)
 puts "expt error x = " + x.to_s + "y = " + y.to_s
 
  # INDENT(2)
  end# end if 14
-return(x**y)
+return(c(x)**c(y))
+
+ INDENT(2)
+ end # End Function number 38
+# Begin Function number 39
+def Si(x)
+#INDENT(1)
+return(0.0)
 
  INDENT(2)
  end # End Function number 39
 # Begin Function number 40
-def Si(x)
+def Ci(x)
 #INDENT(1)
 return(0.0)
 
  INDENT(2)
  end # End Function number 40
 # Begin Function number 41
-def Ci(x)
+def float_abs(x)
 #INDENT(1)
-return(0.0)
+return(c(x).abs)
 
  INDENT(2)
  end # End Function number 41
 # Begin Function number 42
-def float_abs(x)
+def int_abs(x)
 #INDENT(1)
-return(x.abs)
+return(c(x).abs)
 
  INDENT(2)
  end # End Function number 42
 # Begin Function number 43
-def int_abs(x)
+def exp(x)
 #INDENT(1)
-return(x.abs)
+return(c(x).exp)
 
  INDENT(2)
  end # End Function number 43
 # Begin Function number 44
-def exp(x)
+def int_trunc(x)
 #INDENT(1)
-return(Math.exp(x))
+return(c(x).to_i)
 
  INDENT(2)
  end # End Function number 44
 # Begin Function number 45
-def int_trunc(x)
+def floor(x)
 #INDENT(1)
-return(x.to_i)
+return(c(x).floor)
 
  INDENT(2)
  end # End Function number 45
 # Begin Function number 46
-def floor(x)
+def sin(x)
 #INDENT(1)
-return(x.floor)
+return(c(x).sin)
 
  INDENT(2)
  end # End Function number 46
 # Begin Function number 47
-def round(x)
+def neg(x)
 #INDENT(1)
-return(x.round)
+return(c(x).neg)
 
  INDENT(2)
  end # End Function number 47
 # Begin Function number 48
-def sin(x)
+def cos(x)
 #INDENT(1)
-return(Math.sin(x))
+return(c(x).cos)
 
  INDENT(2)
  end # End Function number 48
 # Begin Function number 49
-def neg(x)
+def tan(x)
 #INDENT(1)
-return(-x)
+return(c(x).tan)
 
  INDENT(2)
  end # End Function number 49
 # Begin Function number 50
-def cos(x)
+def arccos(x)
 #INDENT(1)
-return(Math.cos(x))
+return(c(x).acos)
 
  INDENT(2)
  end # End Function number 50
 # Begin Function number 51
-def tan(x)
+def arccosh(x)
 #INDENT(1)
-return(Math.tan(x))
+return(c(x).acosh)
 
  INDENT(2)
  end # End Function number 51
 # Begin Function number 52
-def arccos(x)
+def arcsin(x)
 #INDENT(1)
-return(Math.acos(x))
+return(c(x).asin)
 
  INDENT(2)
  end # End Function number 52
 # Begin Function number 53
-def arccosh(x)
+def arcsinh(x)
 #INDENT(1)
-return(Math.acosh(x))
+return(c(x).asinh)
 
  INDENT(2)
  end # End Function number 53
 # Begin Function number 54
-def arcsin(x)
+def arctan(x)
 #INDENT(1)
-return(Math.asin(x))
+return(c(x).atan)
 
  INDENT(2)
  end # End Function number 54
 # Begin Function number 55
-def arcsinh(x)
+def arctanh(x)
 #INDENT(1)
-return(Math.asinh(x))
+return(c(x).atanh)
 
  INDENT(2)
  end # End Function number 55
 # Begin Function number 56
-def arctan(x)
+def cosh(x)
 #INDENT(1)
-return(Math.atan(x))
+return(c(x).cosh)
 
  INDENT(2)
  end # End Function number 56
 # Begin Function number 57
-def arctanh(x)
+def erf(x)
 #INDENT(1)
-return(Math.atanh(x))
+return(c(x).erf)
 
  INDENT(2)
  end # End Function number 57
 # Begin Function number 58
-def cosh(x)
+def log(x)
 #INDENT(1)
-return(Math.cosh(x))
+return(c(x).log)
 
  INDENT(2)
  end # End Function number 58
 # Begin Function number 59
-def erf(x)
+def ln(x)
 #INDENT(1)
-return(Math.erf(x))
+return(c(x).log)
 
  INDENT(2)
  end # End Function number 59
 # Begin Function number 60
-def log(x)
+def log10(x)
 #INDENT(1)
-return(Math.log(x))
+return(c(x).log10)
 
  INDENT(2)
  end # End Function number 60
 # Begin Function number 61
-def ln(x)
+def sinh(x)
 #INDENT(1)
-return(Math.log(x))
+return(c(x).sinh)
 
  INDENT(2)
  end # End Function number 61
 # Begin Function number 62
-def log10(x)
+def tanh(x)
 #INDENT(1)
-return(Math.log10(x))
+return(c(x).tanh)
 
  INDENT(2)
  end # End Function number 62
 # Begin Function number 63
-def sinh(x)
+def sqrt(x)
 #INDENT(1)
-return(Math.sinh(x))
+return(c(x).sqrt)
 
  INDENT(2)
  end # End Function number 63
 # Begin Function number 64
-def tanh(x)
-#INDENT(1)
-return(Math.tanh(x))
-
- INDENT(2)
- end # End Function number 64
-# Begin Function number 65
-def sqrt(x)
-#INDENT(1)
-return(Math.sqrt(x))
-
- INDENT(2)
- end # End Function number 65
-# Begin Function number 66
 def array2d(op3,op4)
 #INDENT(1)
 i = 0
 x1 = Array.new(op3.to_i + 1)
-while i <= op3.to_i + 1  do # do number -1
+while i <= op3.to_i + 1  do # do number 4
  # INDENT(1)
 x1[i] = Array.new(op4.to_i + 1)
 i += 1
 
 INDENT(2)
- end# end do number -1
+ end# end do number 5
 return x1
 
  INDENT(2)
- end # End Function number 66
-# Begin Function number 67
+ end # End Function number 64
+# Begin Function number 65
 def estimated_needed_step_error(x_start,x_end,estimated_h,estimated_answer)
 #INDENT(1)
  
@@ -1091,4 +1073,4 @@ omniout_float(ALWAYS,"step_error",32,step_error,32,"")
  
 
  INDENT(2)
- end # End Function number 67
+ end # End Function number 65

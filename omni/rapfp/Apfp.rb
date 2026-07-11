@@ -197,7 +197,7 @@ class Apfp
     # now process error
     rerrmant = errmant.reverse
     sz = rerrmant.size
-    if sz > NUM_ERR_DIGITS then 
+    if sz > NUMERR_DIGITS then 
       trim = sz - NUM_ERR_DIGITS
       mre = Regexp.new("^([0-9]){" + trim.to_s + "}")
       if rerrmant =~ mre then
@@ -1124,7 +1124,7 @@ class Apfp
 
     a = self.clone
     d = other
-    if d.kind_of?(Integer) || d.kind_of?(Fixnum)
+    if d.kind_of?(Integer)
       if d == 0 then
         return @@rconst.one
       end

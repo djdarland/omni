@@ -6063,7 +6063,7 @@ $eq_dep_data = Hash.new(0)
 $max_order = 0
 $max_order_occurs_tbl = Hash.new(0)
 if GEN == RUBY_APFP then
-  require_relative '../rapfp/ApConfig'
+  require_relative 'rapfp/ApConfig'
 #  require_relative '../rapfp/Ap'
 #  rconst = $ApConst.new
 #  rconst.one.setrconst(rconst)
@@ -6165,8 +6165,8 @@ elsif (GEN == RUBY) || (GEN == RUBY_APFP) then
   $outfilemain.puts "# before write_ruby_main_top"
   write_ruby_main_top_matter($outfilemain)
   if GEN == RUBY_APFP then
-    $outfilemain.puts 'require_relative "../rapfp/ApConfig"'
-    $outfilemain.puts 'require_relative "../rapfp/Ap"'
+    $outfilemain.puts 'require_relative "rapfp/ApConfig"'
+    $outfilemain.puts 'require_relative "rapfp/Ap"'
     $outfilemain.puts 'rconst = $ApConst.new'
     $outfilemain.puts 'rconst.one.setrconst(rconst)'
     $outfilemain.puts 'rconst.init2'
